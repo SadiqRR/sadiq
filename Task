@@ -1,0 +1,66 @@
+using System;
+namespace CSS
+{
+    class Program
+    {
+        private static int sss;
+        static void Main(string[] args)
+        {
+            Console.Write("Array Size = ");
+            String x = Console.ReadLine();
+            long s = long.Parse(x);
+            if ((s != 0) && (s < 100001))
+            {
+                int[] array = new int[s];
+                int[] gg = new int[s];
+                for (int i = 0; i < s; i++)
+                {
+                    Console.Write("Array[{0}]= ", i);
+                    String a = Console.ReadLine();
+                    array[i] = int.Parse(a);
+                }
+                Program er = new Program();
+                int[] eee = er.solution(array);
+                for (int i = 0; i < eee.Length; i++)
+                {
+                    Console.WriteLine(eee[i]);
+                }
+                Console.WriteLine(sss);
+            }
+            else if (s > 100000)
+            {
+                Console.WriteLine("You Override The Limit Of Array Size 'array size  > 100,000'");
+            }
+            else if (s == 0) {
+                Console.WriteLine("Empty Array!!!");
+            }
+        }
+        public int[] solution(int[] array) {
+                Array.Sort(array);
+                float r = array.Length / 2;
+                int sd = 0;
+                int[] count = new int[array.Length];
+                for (int i = 0; i < array.Length; i++){
+                    for (int j = 0; j < array.Length; j++){
+                        if (array[i] == array[j]){
+                            sd += 1;
+                        }}
+                    count[i] = sd;
+                    sd = 0;
+                }
+                int y = 0;
+                for (int i = 0; i < count.Length; i++){
+                    for (int j = 0; j < count.Length; j++)
+                    {
+                        if (count[i] >= count[j])
+                        {
+                            y += 1;
+                        }
+                        if (y == array.Length){
+                            if (count[i] > r){
+                                sss = array[i];
+                            }else{
+                                sss = -1;
+                            }}}}
+                return array;
+            }}}
